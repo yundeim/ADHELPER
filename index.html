@@ -32,14 +32,29 @@
             box-shadow: 0 4px 12px var(--shadow-color);
             border-bottom: 3px solid var(--primary-color);
         }
-        .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
-        #header-logo {
-            height: 40px;
-            width: auto;
+        .header-top { 
+            display: flex; 
+            justify-content: center; 
+            flex-direction: column;
+            align-items: center;
         }
-        .main-nav { display: flex; justify-content: flex-start; gap: 30px; }
+        #header-logo {
+            height: 55px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .main-nav { 
+            display: flex; 
+            justify-content: center;
+            gap: 30px; 
+        }
         .main-nav a { color: #ccc; text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .main-nav a:hover { color: var(--primary-color); }
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
         .language-switcher button {
             background: none; border: 1px solid var(--border-color); color: var(--text-color);
             padding: 5px 10px; margin-left: 5px; cursor: pointer; border-radius: 5px; transition: 0.3s;
@@ -132,14 +147,38 @@
             .calc-panel, .results-panel { 
                 padding: 20px;
             }
-            .header { padding: 15px; }
-            .main-nav { flex-wrap: wrap; gap: 10px 20px; justify-content: center; }
-            .header-top { flex-direction: column; gap: 15px; }
+            .header { padding: 15px; position: relative; }
+            .main-nav { 
+                flex-wrap: wrap; 
+                gap: 10px 20px; 
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .header-top { 
+                flex-direction: column; 
+                gap: 15px; 
+                align-items: center;
+            }
+            .language-switcher {
+                position: static;
+                margin-top: 15px;
+            }
         }
         @media (max-width: 480px) {
-            .header-top { flex-direction: row; align-items: center; }
-            #header-logo { height: 30px; }
-            .language-switcher { margin-left: auto; }
+            .header-top { 
+                flex-direction: column; 
+                align-items: center; 
+            }
+            #header-logo { height: 40px; }
+             .language-switcher {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                margin-top: 0;
+            }
+            .main-nav {
+                margin-top: 0;
+            }
             h2 { font-size: 20px; }
             h3 { font-size: 18px; }
             .button-group { flex-direction: column; }
@@ -153,16 +192,16 @@
     <header class="header">
         <div class="header-top">
             <img src="unnamed.png" alt="AdmartHelper Logo" id="header-logo">
-            <div class="language-switcher">
-                <button id="lang-ru" data-lang="ru">Русский</button>
-                <button id="lang-en" data-lang="en">English</button>
-            </div>
         </div>
         <nav class="main-nav">
             <a href="https://admart.kz/g1157172-istochniki-sveta-led" target="_blank" data-translate-key="nav_lights">Источники света LED</a>
             <a href="https://admart.kz/g325277-listovye-materialy" target="_blank" data-translate-key="nav_materials">Листовые материалы</a>
             <a href="https://admart.kz/g325279-istochniki-upravleniya-kontrollery" target="_blank" data-translate-key="nav_controllers">Источники управления</a>
         </nav>
+        <div class="language-switcher">
+            <button id="lang-ru" data-lang="ru">Русский</button>
+            <button id="lang-en" data-lang="en">English</button>
+        </div>
     </header>
 
     <div class="main-container">
@@ -208,8 +247,8 @@
             </select>
             <div id="power-calc-result" class="result" style="display:none;"></div>
             <div class="button-group">
-                 <button id="calculate-psu-btn" class="calculate-btn" data-translate-key="calculate_btn_power">Расчет БП</button>
-                 <button id="reset-psu-btn" class="reset-btn" data-translate-key="reset_btn">Сброс</button>
+                <button id="calculate-psu-btn" class="calculate-btn" data-translate-key="calculate_btn_power">Расчет БП</button>
+                <button id="reset-psu-btn" class="reset-btn" data-translate-key="reset_btn">Сброс</button>
             </div>
         </div>
         
@@ -266,8 +305,8 @@
                 <div id="visual-schemes"></div>
             </div>
             <div id="power" class="tab-content">
-                 <h3 data-translate-key="power_title">Расчет блока питания</h3>
-                 <div id="power-result" class="result-grid"></div>
+                <h3 data-translate-key="power_title">Расчет блока питания</h3>
+                <div id="power-result" class="result-grid"></div>
             </div>
         </div>
     </div>
@@ -312,7 +351,6 @@ class AdmartVisualHelper {
         });
         document.querySelectorAll('.language-switcher button').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`lang-${lang}`).classList.add('active');
-        // Re-populate all dynamic selects after language change
         this.populateDiodeSeriesSelect();
         this.populateMaterialTypeSelect();
         this.updatePsuInputLabels();
