@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,6 @@
             --shadow-color: rgba(0, 0, 0, 0.4);
             --input-bg-color: #333;
         }
-
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--bg-color);
@@ -26,40 +25,32 @@
             color: var(--text-color);
             line-height: 1.6;
         }
-
         .header {
             background-color: var(--main-bg-color);
             padding: 15px 30px;
             box-shadow: 0 4px 12px var(--shadow-color);
             border-bottom: 3px solid var(--primary-color);
         }
-
         .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
         .header h1 { margin: 0; font-size: 24px; }
         .header h1 span { color: var(--primary-color); }
         .main-nav a { color: #ccc; text-decoration: none; margin: 0 15px; font-weight: 500; transition: color 0.3s; }
         .main-nav a:hover { color: var(--primary-color); }
-
         .language-switcher button {
             background: none; border: 1px solid var(--border-color); color: var(--text-color);
             padding: 5px 10px; margin-left: 5px; cursor: pointer; border-radius: 5px; transition: 0.3s;
         }
         .language-switcher button.active { background-color: var(--primary-color); border-color: var(--primary-color); color: #fff; }
-
-        /* ИЗМЕНЕНИЕ: Сетка теперь вмещает два калькулятора и панель результатов */
         .main-container { display: grid; grid-template-columns: 380px 380px 1fr; gap: 30px; max-width: 1600px; margin: 30px auto; padding: 0 20px; }
-
-        .inputs-panel, .results-panel, .power-calc-panel { background-color: var(--main-bg-color); padding: 30px; border-radius: 12px; box-shadow: 0 8px 25px var(--shadow-color); }
-        
+        .inputs-panel, .results-panel, .power-calc-panel { background-color: var(--main-bg-color); padding: 25px; border-radius: 12px; box-shadow: 0 8px 25px var(--shadow-color); }
         h2, h3 { margin-top: 0; color: #fff; }
-        label { display: block; margin-top: 20px; font-weight: 500; font-size: 14px; }
+        label { display: block; margin-top: 15px; font-weight: 500; font-size: 14px; }
         select, input {
-            width: 100%; padding: 12px; margin-top: 8px; border: 1px solid var(--border-color);
+            width: 100%; padding: 10px; margin-top: 8px; border: 1px solid var(--border-color);
             background-color: var(--input-bg-color); color: var(--text-color);
             border-radius: 8px; font-size: 16px; box-sizing: border-box;
         }
-        
-        .button-group { display: flex; gap: 10px; margin-top: 30px; }
+        .button-group { display: flex; gap: 10px; margin-top: 25px; }
         .calculate-btn {
             flex-grow: 1; padding: 15px; background: var(--primary-color); color: #fff;
             border: none; cursor: pointer; transition: 0.3s; border-radius: 8px; font-size: 18px; font-weight: 700;
@@ -70,7 +61,6 @@
             transition: 0.3s; border-radius: 8px; font-size: 18px;
         }
         .reset-btn:hover { background: #666; }
-
         .tabs { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
         .tab-button {
             padding: 12px 20px; border: none; background: none; cursor: pointer;
@@ -78,26 +68,19 @@
             border-bottom: 3px solid transparent; margin-bottom: -1px; transition: 0.3s;
         }
         .tab-button.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
-
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
         .result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
         .result-item { background-color: #333; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-color); }
         .result-item .label { font-weight: 500; font-size: 14px; opacity: 0.8; }
         .result-item .value { font-size: 22px; font-weight: 700; }
-        
-        /* Стили для результата нового калькулятора БП */
-        .power-calc-panel .result { white-space: pre-wrap; margin-top: 20px; padding: 15px; background-color: #333; border-radius: 8px; border-left: 4px solid var(--primary-color); }
+        .power-calc-panel .result { white-space: pre-wrap; margin-top: 20px; padding: 15px; background-color: #333; border-radius: 8px; border-left: 4px solid var(--primary-color); line-height: 1.8; }
         .power-calc-panel .result strong { color: var(--primary-color); font-size: 1.1em;}
-
-
         .summary-list { list-style: none; padding: 0; }
         .summary-list li { background-color: #333; margin-bottom: 10px; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
         .summary-list .label { font-weight: 500; }
         .summary-list .value { font-size: 18px; font-weight: 700; color: var(--primary-color); }
-        
         #visual-schemes {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -115,12 +98,7 @@
             background-color: var(--input-bg-color);
         }
         .loader { text-align: center; padding: 40px; font-size: 18px; display: none; }
-
         .footer { text-align: left; margin-top: 20px; }
-        #admin-btn { background: #555; border: none; color: #fff; padding: 8px 15px; cursor: pointer; border-radius: 5px; }
-        #admin-panel { display: none; margin-top: 20px; padding: 20px; background-color: #3c3c3c; border-radius: 8px; }
-        
-        /* Адаптивность */
         @media (max-width: 1300px) {
             .main-container { grid-template-columns: 380px 1fr; }
             .power-calc-panel { grid-column: 1 / 2; grid-row: 2 / 3; }
@@ -131,8 +109,6 @@
             .main-container { grid-template-columns: 1fr; }
             .power-calc-panel, .inputs-panel, .results-panel { grid-column: auto; grid-row: auto; }
         }
-
-
     </style>
 </head>
 <body>
@@ -142,7 +118,6 @@
             <h1>Admart<span>Helper</span></h1>
             <div class="language-switcher">
                 <button id="lang-ru" data-lang="ru">Русский</button>
-                <button id="lang-kz" data-lang="kz">Қазақша</button>
                 <button id="lang-en" data-lang="en">English</button>
             </div>
         </div>
@@ -161,7 +136,16 @@
             <input type="text" id="project-text" placeholder="ADMART">
             
             <label for="project-height" data-translate-key="letter_height_label">Высота букв (мм):</label>
-            <input type="number" id="project-height" placeholder="300">
+            <input type="number" id="project-height" value="300">
+            
+            <label for="project-length" data-translate-key="sign_length_label">Длина вывески (мм):</label>
+            <input type="number" id="project-length" value="1500">
+            
+            <label for="project-depth" data-translate-key="letter_depth_label">Глубина букв (мм):</label>
+            <input type="number" id="project-depth" value="80">
+            
+            <label for="diode-series" data-translate-key="diode_series_label">Серия светодиодов:</label>
+            <select id="diode-series"></select>
             
             <label for="light-source" data-translate-key="diode_modules_label">Светодиодные модули:</label>
             <select id="light-source"></select>
@@ -170,23 +154,41 @@
                 <button id="calculate-btn" class="calculate-btn" data-translate-key="calculate_btn">Рассчитать</button>
                 <button id="reset-btn" class="reset-btn" data-translate-key="reset_btn">Сброс</button>
             </div>
-             <div class="footer">
-                <button id="admin-btn">Админ</button>
-            </div>
         </div>
         
         <div class="power-calc-panel">
             <h2 data-translate-key="power_calc_title">Быстрый расчет БП</h2>
-            <label for="power-calc-unit" data-translate-key="unit_type_label">Тип единицы:</label>
-            <select id="power-calc-unit">
-                <option value="pcs" data-translate-key="unit_pcs">Штуки</option>
-                <option value="m" data-translate-key="unit_m">Метры</option>
+
+            <label for="psu-voltage" data-translate-key="voltage_label">Напряжение:</label>
+            <select id="psu-voltage">
+                <option value="12">12V</option>
+                <option value="24">24V</option>
             </select>
-            <label for="power-calc-wattage" data-translate-key="watt_per_unit_label">Мощность на единицу (Вт):</label>
-            <input type="number" id="power-calc-wattage" placeholder="10">
-            <label for="power-calc-quantity" data-translate-key="quantity_label">Количество:</label>
-            <input type="number" id="power-calc-quantity" placeholder="15">
-            <button id="calculate-power-standalone-btn" class="calculate-btn" data-translate-key="calculate_btn">Рассчитать</button>
+            
+            <label for="psu-product-type" data-translate-key="product_type_label">Тип продукции:</label>
+            <select id="psu-product-type">
+                <option value="module" data-translate-key="product_module">Диодные модули</option>
+                <option value="strip" data-translate-key="product_strip">Светодиодная лента</option>
+            </select>
+            
+            <label for="psu-wattage-per-unit" id="psu-wattage-label" data-translate-key="wattage_per_item_label_module">Мощность на модуль (Вт):</label>
+            <input type="number" id="psu-wattage-per-unit" placeholder="1.2">
+            
+            <label for="psu-quantity" id="psu-quantity-label" data-translate-key="quantity_label_module">Количество модулей (шт):</label>
+            <input type="number" id="psu-quantity" placeholder="100">
+            
+            <label for="psu-safety-margin" data-translate-key="safety_margin_label">Запас мощности:</label>
+            <select id="psu-safety-margin">
+                <option value="0.15">15%</option>
+                <option value="0.20">20%</option>
+                <option value="0.25">25%</option>
+                <option value="0.30" selected>30%</option>
+            </select>
+
+            <div class="button-group">
+                 <button id="calculate-psu-btn" class="calculate-btn" data-translate-key="calculate_btn_power">Расчет БП</button>
+                 <button id="reset-psu-btn" class="reset-btn" data-translate-key="reset_btn">Сброс</button>
+            </div>
             <div id="power-calc-result" class="result" style="display:none;"></div>
         </div>
         
@@ -195,7 +197,6 @@
                 <button class="tab-button active" data-tab="summary" data-translate-key="summary_tab">Сводка</button>
                 <button class="tab-button" data-tab="lighting" data-translate-key="lighting_tab">Схемы букв</button>
                 <button class="tab-button" data-tab="power" data-translate-key="power_tab">Питание</button>
-                <button class="tab-button" data-tab="materials" data-translate-key="materials_tab">Материалы</button>
             </div>
             
             <div id="summary" class="tab-content active">
@@ -211,57 +212,114 @@
 
             <div id="power" class="tab-content">
                  <h3 data-translate-key="power_title">Расчет блока питания</h3>
-                <div id="power-result" class="result-grid"></div>
-            </div>
-
-            <div id="materials" class="tab-content">
-                 <h3 data-translate-key="materials_title">Расчет листовых материалов</h3>
-                 <p style="font-size:14px; opacity:0.8;" data-translate-key="materials_desc_new">Расчет для лицевой/задней части. Стандартный лист: 1220x2440 мм.</p>
-                <div id="materials-result" class="result-grid"></div>
+                 <div id="power-result" class="result-grid"></div>
             </div>
         </div>
-    </div>
-    
-    <div id="admin-panel" style="max-width: 900px; margin: -20px auto 30px auto; padding: 20px;">
-         <h3 data-translate-key="admin_panel_title">Панель администратора</h3>
-         <input id="admin-item-name" placeholder="Название, напр. Модуль 2W">
-         <input id="admin-item-power" type="number" placeholder="Мощность (Вт)">
-         <input id="admin-item-distance" type="number" placeholder="Расстояние между диодами (мм)">
-         <button id="add-item-btn" data-translate-key="add_btn">Добавить</button>
     </div>
 
 <script>
 class AdmartVisualHelper {
     constructor() {
-        this.defaultLightSourceData = {
-            'SMD2835_1.5W': { name: 'Модуль 1.5W (2835, 3 диода)', power: 1.5, distance: 80 },
-            'SMD2835_0.72W': { name: 'Модуль 0.72W (2835, 2 диода)', power: 0.72, distance: 60 },
-            'SMD5630_1.2W': { name: 'Модуль 1.2W (5630, 3 диода)', power: 1.2, distance: 70 },
+        this.DIODE_DATA = {
+            "ECO": {
+                name: "ECO серия",
+                modules: {
+                    'eco_0.72': { name: 'Трехточечный с линзой 0.72W ECO', power: 0.72 },
+                    'eco_1.2': { name: 'Трехточечный с линзой 1.2W ECO', power: 1.2 },
+                }
+            },
+            "MINI": {
+                name: "MINI серия",
+                modules: { 'mini_0.72': { name: 'Трехточечный с линзой 0.72W MINI', power: 0.72 } }
+            },
+            "COMPACT": {
+                name: "COMPACT серия",
+                modules: {
+                    'compact_0.72_white': { name: 'Трехточечный 0.72W БЕЛЫЙ', power: 0.72 },
+                    'compact_1.2_white': { name: 'Трехточечный 1.2W БЕЛЫЙ', power: 1.2 },
+                    'compact_0.72_warm': { name: 'Трехточечный 0.72W ТЕПЛЫЙ', power: 0.72 },
+                    'compact_0.72_red': { name: 'Трехточечный 0.72W КРАСНЫЙ', power: 0.72 },
+                    'compact_0.72_blue': { name: 'Трехточечный 0.72W СИНИЙ', power: 0.72 },
+                    'compact_0.72_green': { name: 'Трехточечный 0.72W ЗЕЛЕНЫЙ', power: 0.72 },
+                    'compact_0.72_yellow': { name: 'Трехточечный 0.72W ЖЕЛТЫЙ', power: 0.72 },
+                }
+            },
+            "PRO": {
+                name: "PRO серия",
+                modules: {
+                    'pro_0.36': { name: 'Одноточечный 0.36W PRO', power: 0.36 },
+                    'pro_0.5': { name: 'Одноточечный 0.5W PRO', power: 0.5 },
+                    'pro_1.0': { name: 'Двухточечный 1W PRO', power: 1.0 },
+                    'pro_1.51': { name: 'Трехточечный 1.51W PRO', power: 1.51 },
+                    'pro_2.02': { name: 'Четырехточечный 2.02W PRO', power: 2.02 },
+                    'pro_3.0': { name: 'Шеститочечный 3W PRO', power: 3.0 },
+                }
+            }
         };
-        this.lightSourceData = {};
+        
+        this.PSU_SIZES = [40, 60, 80, 100, 120, 150, 200, 250, 300, 350, 400];
+        this.MAX_PSU_POWER = 400;
 
         this.translations = {
             ru: {
                 nav_lights: 'Источники света LED', nav_materials: 'Листовые материалы', nav_controllers: 'Источники управления',
-                project_params_title: 'Параметры вывески',
-                sign_text_label: 'Текст вывески:', letter_height_label: 'Высота букв (мм):', diode_modules_label: 'Светодиодные модули:',
-                summary_tab: 'Сводка', lighting_tab: 'Схемы букв', power_tab: 'Питание', materials_tab: 'Материалы',
-                summary_title: 'Итоговая сводка по проекту', lighting_title_new: 'Визуальные схемы расположения диодов', power_title: 'Расчет блока питания', materials_title: 'Расчет листовых материалов',
-                calculate_btn: 'Рассчитать', reset_btn: 'Сброс',
-                materials_desc_new: 'Расчет для лицевой/задней части. Стандартный лист: 1220x2440 мм.',
+                project_params_title: 'Параметры вывески', sign_text_label: 'Текст вывески:',
+                letter_height_label: 'Высота букв (мм):', letter_depth_label: 'Глубина букв (мм):',
+                sign_length_label: 'Длина вывески (мм):',
+                diode_series_label: 'Серия светодиодов:', diode_modules_label: 'Светодиодные модули:',
+                summary_tab: 'Сводка', lighting_tab: 'Схемы букв', power_tab: 'Питание',
+                summary_title: 'Итоговая сводка по проекту', lighting_title_new: 'Визуальные схемы расположения диодов',
+                power_title: 'Расчет блока питания', calculate_btn: 'Рассчитать', reset_btn: 'Сброс',
                 total_diodes: 'Общее кол-во модулей', pieces: 'шт.', total_power: 'Общая мощность',
                 psu_recommendation: 'Рекомендация по БП', psu_config: 'Конфигурация',
-                one_psu: 'Один блок на', blocks_of: 'блока по',
-                sheets_needed: 'Листов на 1 сторону', sheet_fits: 'Деталь помещается на 1 лист',
-                admin_panel_title: 'Панель администратора', add_btn: 'Добавить',
-                item_added_success: 'Модуль успешно добавлен! Обновите страницу.', password_prompt: 'Введите пароль:', wrong_password: 'Неверный пароль.',
-                // Новые переводы для калькулятора БП
-                power_calc_title: 'Быстрый расчет БП', unit_type_label: 'Тип единицы:', unit_pcs: 'Штуки', unit_m: 'Метры',
-                watt_per_unit_label: 'Мощность на единицу (Вт):', quantity_label: 'Количество:',
-                total_calc_power: 'Общая мощность', reserve_30: 'Запас 30%', recommended_psu: 'Рекомендуемая мощность БП',
+                power_calc_title: 'Быстрый расчет БП',
+                calculate_btn_power: 'Расчет БП',
+                alert_fill_fields: 'Пожалуйста, заполните все параметры!',
+                letter: "Буква",
+                voltage_label: "Напряжение:",
+                product_type_label: "Тип продукции:",
+                product_module: "Диодные модули",
+                product_strip: "Светодиодная лента",
+                wattage_per_item_label_module: "Мощность на модуль (Вт):",
+                wattage_per_item_label_strip: "Мощность на метр (Вт):",
+                quantity_label_module: "Количество модулей (шт):",
+                quantity_label_strip: "Длина ленты (м):",
+                safety_margin_label: "Запас мощности:",
+                base_power: "Базовая мощность",
+                power_reserve: "Запас мощности",
+                total_required_power: "Итоговая мощность",
+                psu_final_reco: 'Рекомендация',
+
             },
-            kz: { /* Казахские переводы */ },
-            en: { /* Английские переводы */ }
+            en: {
+                nav_lights: 'LED Light Sources', nav_materials: 'Sheet Materials', nav_controllers: 'Control Sources',
+                project_params_title: 'Sign Parameters', sign_text_label: 'Sign Text:',
+                letter_height_label: 'Letter Height (mm):', letter_depth_label: 'Letter Depth (mm):',
+                sign_length_label: 'Sign Length (mm):',
+                diode_series_label: 'Diode Series:', diode_modules_label: 'LED Modules:',
+                summary_tab: 'Summary', lighting_tab: 'Letter Schemes', power_tab: 'Power',
+                summary_title: 'Project Summary', lighting_title_new: 'Visual Diode Layout Schemes',
+                power_title: 'Power Supply Calculation', calculate_btn: 'Calculate', reset_btn: 'Reset',
+                total_diodes: 'Total Modules', pieces: 'pcs', total_power: 'Total Power',
+                psu_recommendation: 'PSU Recommendation', psu_config: 'Configuration',
+                power_calc_title: 'Quick PSU Calculator',
+                calculate_btn_power: 'Calculate PSU',
+                alert_fill_fields: 'Please fill all parameters!',
+                letter: "Letter",
+                voltage_label: "Voltage:",
+                product_type_label: "Product Type:",
+                product_module: "Diode modules",
+                product_strip: "LED strip",
+                wattage_per_item_label_module: "Power per module (W):",
+                wattage_per_item_label_strip: "Power per meter (W):",
+                quantity_label_module: "Number of modules (pcs):",
+                quantity_label_strip: "Strip length (m):",
+                safety_margin_label: "Power reserve:",
+                base_power: "Base power",
+                power_reserve: "Power reserve",
+                total_required_power: "Total required power",
+                psu_final_reco: 'Recommendation',
+            }
         };
         this.currentLang = 'ru';
         this.projectData = {};
@@ -269,51 +327,75 @@ class AdmartVisualHelper {
     }
 
     init() {
-        this.loadLightSourceData();
-        this.populateLightSourceSelect();
         this.addEventListeners();
+        this.populateSeriesSelect();
+        this.updatePsuInputLabels();
         this.setLanguage(localStorage.getItem('admartLang') || 'ru');
     }
 
-    loadLightSourceData() {
-        const customData = localStorage.getItem('admartCustomLightSourceData');
-        this.lightSourceData = customData ? JSON.parse(customData) : this.defaultLightSourceData;
-    }
-
-    populateLightSourceSelect() {
-        const select = document.getElementById('light-source');
-        select.innerHTML = '';
-        for (const key in this.lightSourceData) {
-            const option = document.createElement('option');
-            option.value = key;
-            option.textContent = this.lightSourceData[key].name;
-            select.appendChild(option);
-        }
-    }
-    
     setLanguage(lang) {
+        if (!this.translations[lang]) return;
         this.currentLang = lang;
         localStorage.setItem('admartLang', lang);
+
         document.querySelectorAll('[data-translate-key]').forEach(el => {
             const key = el.dataset.translateKey;
-            if (this.translations[this.currentLang] && this.translations[this.currentLang][key]) {
-                const target = el.tagName === 'OPTION' ? el : el;
-                target.innerHTML = this.translations[this.currentLang][key];
+            if (this.translations[this.currentLang][key]) {
+                 // For <option> elements, textContent is the right property.
+                 el.textContent = this.translations[this.currentLang][key];
             }
         });
+        
+        // After translating, we need to re-update context-sensitive labels
+        this.updatePsuInputLabels();
+
         document.querySelectorAll('.language-switcher button').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`lang-${lang}`).classList.add('active');
+        
+        this.populateSeriesSelect();
+    }
+
+    populateSeriesSelect() {
+        const seriesSelect = document.getElementById('diode-series');
+        seriesSelect.innerHTML = '';
+        for (const key in this.DIODE_DATA) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = this.DIODE_DATA[key].name;
+            seriesSelect.appendChild(option);
+        }
+        this.populateModuleSelect();
+    }
+
+    populateModuleSelect() {
+        const seriesKey = document.getElementById('diode-series').value;
+        const moduleSelect = document.getElementById('light-source');
+        const series = this.DIODE_DATA[seriesKey];
+        moduleSelect.innerHTML = '';
+
+        if (!series) return;
+
+        for (const key in series.modules) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.dataset.series = seriesKey;
+            option.textContent = series.modules[key].name;
+            moduleSelect.appendChild(option);
+        }
     }
 
     addEventListeners() {
-        // Калькулятор вывесок
+        // Main calculator
         document.getElementById('calculate-btn').addEventListener('click', () => this.runCalculations());
         document.getElementById('reset-btn').addEventListener('click', () => this.reset());
+        document.getElementById('diode-series').addEventListener('change', () => this.populateModuleSelect());
 
-        // НОВЫЙ СЛУШАТЕЛЬ: Калькулятор БП
-        document.getElementById('calculate-power-standalone-btn').addEventListener('click', () => this.calculateStandalonePower());
-
-        // Вкладки
+        // Quick PSU calculator
+        document.getElementById('calculate-psu-btn').addEventListener('click', () => this.calculateQuickPSU());
+        document.getElementById('reset-psu-btn').addEventListener('click', () => this.resetQuickPSU());
+        document.getElementById('psu-product-type').addEventListener('change', () => this.updatePsuInputLabels());
+        
+        // Tabs
         document.querySelectorAll('.tab-button[data-tab]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.tab-button, .tab-content').forEach(el => el.classList.remove('active'));
@@ -322,27 +404,97 @@ class AdmartVisualHelper {
             });
         });
         
-        // Переключатель языка
+        // Language
         document.querySelectorAll('.language-switcher button').forEach(btn => {
             btn.addEventListener('click', (e) => this.setLanguage(e.target.dataset.lang));
         });
-
-        // Админ панель
-        document.getElementById('admin-btn').addEventListener('click', () => this.showAdminPanel());
-        document.getElementById('add-item-btn').addEventListener('click', () => this.addLightSource());
     }
+
+    // --- QUICK PSU CALCULATOR ---
+    
+    updatePsuInputLabels() {
+        const productType = document.getElementById('psu-product-type').value;
+        const t = this.translations[this.currentLang];
+        
+        const wattageLabel = document.getElementById('psu-wattage-label');
+        const quantityLabel = document.getElementById('psu-quantity-label');
+        
+        if (productType === 'module') {
+            wattageLabel.textContent = t.wattage_per_item_label_module;
+            quantityLabel.textContent = t.quantity_label_module;
+        } else { // strip
+            wattageLabel.textContent = t.wattage_per_item_label_strip;
+            quantityLabel.textContent = t.quantity_label_strip;
+        }
+    }
+
+    resetQuickPSU() {
+        document.getElementById('psu-wattage-per-unit').value = '';
+        document.getElementById('psu-quantity').value = '';
+        const resultEl = document.getElementById('power-calc-result');
+        resultEl.style.display = 'none';
+        resultEl.innerHTML = '';
+    }
+
+    calculateQuickPSU() {
+        const wattagePerUnit = parseFloat(document.getElementById('psu-wattage-per-unit').value);
+        const quantity = parseFloat(document.getElementById('psu-quantity').value);
+        const margin = parseFloat(document.getElementById('psu-safety-margin').value);
+        const voltage = document.getElementById('psu-voltage').value;
+        const resultEl = document.getElementById('power-calc-result');
+
+        if (!wattagePerUnit || !quantity || wattagePerUnit <= 0 || quantity <= 0) {
+            alert(this.translations[this.currentLang].alert_fill_fields);
+            resultEl.style.display = 'none';
+            return;
+        }
+
+        const basePower = wattagePerUnit * quantity;
+        const powerReserveValue = basePower * margin;
+        const requiredPower = basePower + powerReserveValue;
+        const recommendation = this.getPSURecommendation(requiredPower, voltage);
+        const t = this.translations[this.currentLang];
+        
+        resultEl.innerHTML = `
+${t.base_power}: ${basePower.toFixed(1)} W
+${t.power_reserve} (${(margin * 100).toFixed(0)}%): ${powerReserveValue.toFixed(1)} W
+-------------------------
+<strong>${t.total_required_power}: ${requiredPower.toFixed(1)} W</strong>
+<hr>
+<strong>${t.psu_final_reco}: ${recommendation}</strong>`;
+        resultEl.style.display = 'block';
+    }
+    
+    getPSURecommendation(power, voltage) {
+        let recommendation;
+        if (power <= this.MAX_PSU_POWER) {
+            const suitablePSU = this.PSU_SIZES.find(size => size >= power) || this.MAX_PSU_POWER;
+            recommendation = `1 x ${suitablePSU}W / ${voltage}V`;
+        } else {
+            const numBlocks = Math.ceil(power / this.MAX_PSU_POWER);
+            const powerPerBlock = Math.ceil(power / numBlocks);
+            const suitablePSU = this.PSU_SIZES.find(size => size >= powerPerBlock) || this.MAX_PSU_POWER;
+            recommendation = `${numBlocks} x ${suitablePSU}W / ${voltage}V`;
+        }
+        return recommendation;
+    }
+
+
+    // --- MAIN SIGN CALCULATOR ---
     
     runCalculations() {
         const text = document.getElementById('project-text').value.trim().toUpperCase();
         const height = parseFloat(document.getElementById('project-height').value);
+        const length = parseFloat(document.getElementById('project-length').value);
         const sourceKey = document.getElementById('light-source').value;
+        const seriesKey = document.getElementById('diode-series').value;
 
-        if (!text || !height || !sourceKey) {
-            alert('Please fill all project parameters!');
+        if (!text || !height || !length || !sourceKey || !seriesKey) {
+            alert(this.translations[this.currentLang].alert_fill_fields);
             return;
         }
         
-        this.projectData = { text, height, source: this.lightSourceData[sourceKey] };
+        this.projectData = { text, height, length, source: this.DIODE_DATA[seriesKey].modules[sourceKey] };
         
         const loader = document.getElementById('visual-loader');
         loader.style.display = 'block';
@@ -352,7 +504,6 @@ class AdmartVisualHelper {
         setTimeout(() => {
             this.calculateLighting();
             this.calculatePower();
-            this.calculateMaterials();
             this.renderSummary();
             loader.style.display = 'none';
         }, 100);
@@ -360,44 +511,31 @@ class AdmartVisualHelper {
 
     reset() {
         document.getElementById('project-text').value = '';
-        document.getElementById('project-height').value = '';
+        document.getElementById('project-height').value = '300';
+        document.getElementById('project-length').value = '1500';
+        document.getElementById('project-depth').value = '80';
         document.getElementById('results-panel').style.display = 'none';
         document.getElementById('visual-schemes').innerHTML = '';
         this.projectData = {};
     }
     
-    // НОВАЯ ФУНКЦИЯ: Расчет для независимого калькулятора БП
-    calculateStandalonePower() {
-        const wattage = parseFloat(document.getElementById('power-calc-wattage').value);
-        const quantity = parseFloat(document.getElementById('power-calc-quantity').value);
-        const resultEl = document.getElementById('power-calc-result');
-
-        if (!wattage || !quantity || wattage <= 0 || quantity <= 0) {
-            resultEl.style.display = 'none';
-            return;
-        }
-
-        const totalPower = wattage * quantity;
-        const reserve = totalPower * 0.3;
-        const recommendedPower = totalPower + reserve;
-        
-        const t = this.translations[this.currentLang]; // Сокращение для удобства
-        
-        resultEl.innerHTML = `${t.total_calc_power}: ${totalPower.toFixed(1)} W
-${t.reserve_30}: ${reserve.toFixed(1)} W
--------------------------
-<strong>${t.recommended_psu}: ${recommendedPower.toFixed(1)} W</strong>`;
-        resultEl.style.display = 'block';
-    }
-
     calculateLighting() {
-        const { text, height, source } = this.projectData;
+        const { text, height, length, source } = this.projectData;
         const schemesContainer = document.getElementById('visual-schemes');
         let totalDiodes = 0;
         let letterResults = [];
+        const chars = text.replace(/\s/g, '').split('');
 
-        text.replace(/\s/g, '').split('').forEach(char => {
-            const { canvas, diodeCount } = this.createLetterScheme(char, height, source.distance);
+        const tempCtx = document.createElement('canvas').getContext('2d');
+        tempCtx.font = `bold ${height}px Arial`;
+        const totalNaturalWidth = chars.reduce((sum, char) => sum + tempCtx.measureText(char).width, 0);
+        
+        const scaleFactor = totalNaturalWidth > 0 ? length / totalNaturalWidth : 0;
+
+        chars.forEach(char => {
+            const naturalWidth = tempCtx.measureText(char).width;
+            const scaledWidth = naturalWidth * scaleFactor;
+            const { canvas, diodeCount } = this.createLetterScheme(char, height, scaledWidth);
             totalDiodes += diodeCount;
             letterResults.push({ char, canvas, diodeCount });
         });
@@ -408,154 +546,126 @@ ${t.reserve_30}: ${reserve.toFixed(1)} W
         };
 
         schemesContainer.innerHTML = '';
+        const t = this.translations[this.currentLang];
         letterResults.forEach(res => {
             const wrapper = document.createElement('div');
             wrapper.className = 'scheme-item';
             const label = document.createElement('div');
-            label.textContent = `${res.char} (${res.diodeCount} ${this.translations[this.currentLang].pieces})`;
+            label.textContent = `${t.letter} "${res.char}" (${res.diodeCount} ${t.pieces})`;
             wrapper.appendChild(res.canvas);
             wrapper.appendChild(label);
             schemesContainer.appendChild(wrapper);
         });
     }
 
-    createLetterScheme(char, height, distance) {
+    createLetterScheme(char, height, width) {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        
+        canvas.width = Math.max(1, Math.ceil(width));
+        canvas.height = Math.max(1, Math.ceil(height));
+        
         const font = `bold ${height}px Arial`;
-        ctx.font = font;
-        const metrics = ctx.measureText(char);
-        const width = Math.ceil(metrics.width);
-        
-        canvas.width = width > 0 ? width : height / 2;
-        canvas.height = height;
-        
-        ctx.fillStyle = 'black';
         ctx.font = font;
         ctx.textBaseline = 'middle';
         ctx.textAlign = 'center';
-        ctx.fillText(char, canvas.width / 2, height / 2);
-
+        
+        const naturalWidth = ctx.measureText(char).width;
+        const effectiveScale = naturalWidth > 0 ? width / naturalWidth : 0;
+        
+        ctx.save();
+        ctx.translate(width / 2, height / 2);
+        ctx.scale(effectiveScale, 1);
+        ctx.fillText(char, 0, 0);
+        ctx.restore();
+        
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-        let diodeCount = 0;
-        const diodePositions = [];
-
-        for (let y = distance / 2; y < height; y += distance) {
-            for (let x = distance / 2; x < canvas.width; x += distance) {
-                const pxIndex = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-                if (imageData[pxIndex + 3] > 128) {
-                    diodeCount++;
-                    diodePositions.push({ x, y });
-                }
-            }
-        }
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#666';
-        ctx.font = font;
-        ctx.textBaseline = 'middle';
-        ctx.textAlign = 'center';
-        ctx.fillText(char, canvas.width / 2, height / 2);
-        
-        ctx.fillStyle = 'red';
-        const diodeRadius = Math.max(2, height / 80);
-        diodePositions.forEach(pos => {
-            ctx.beginPath();
-            ctx.arc(pos.x, pos.y, diodeRadius, 0, 2 * Math.PI);
-            ctx.fill();
-        });
+        ctx.save();
+        ctx.translate(width / 2, height / 2);
+        ctx.scale(effectiveScale, 1);
+        ctx.fillText(char, 0, 0);
+        ctx.restore();
 
-        return { canvas, diodeCount: diodeCount > 0 ? diodeCount : 1 };
+        ctx.fillStyle = 'red';
+        const diodeRadius = Math.max(2, height / 100);
+        const step = 150; 
+        let diodeCount = 0;
+
+        for (let y = step / 2; y < height; y += step) {
+            for (let x = step / 2; x < width; x += step) {
+                const pxIndex = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+                if (imageData.length > pxIndex + 3 && imageData[pxIndex + 3] > 128) {
+                    ctx.beginPath();
+                    ctx.arc(x, y, diodeRadius, 0, 2 * Math.PI);
+                    ctx.fill();
+                    diodeCount++;
+                }
+            }
+        }
+
+        if (diodeCount === 0) {
+             const centerX = width / 2;
+             const centerY = height / 2;
+             const pxIndex = (Math.floor(centerY) * canvas.width + Math.floor(centerX)) * 4;
+             if(imageData.length > pxIndex + 3 && imageData[pxIndex + 3] > 128) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, diodeRadius, 0, 2 * Math.PI);
+                ctx.fill();
+                diodeCount = 1;
+             }
+        }
+
+        return { canvas, diodeCount };
     }
 
     calculatePower() {
         const { total_power } = this.projectData.lighting;
-        const requiredPower = total_power * 1.3;
-        let recommendation = '';
-        if (requiredPower > 400) {
-            const blocks = Math.ceil(requiredPower / 400);
-            const powerPerBlock = Math.ceil(requiredPower / blocks);
-            recommendation = `${blocks} ${this.translations[this.currentLang].blocks_of} ${powerPerBlock} W`;
-        } else {
-            recommendation = `${this.translations[this.currentLang].one_psu} ${Math.ceil(requiredPower)} W`;
-        }
+        const requiredPower = total_power * 1.3; // Default 30% reserve for main calc
+        const recommendation = this.getPSURecommendation(requiredPower, '12'); // Default to 12V for sign calc
+        
         this.projectData.power = { recommendation };
+        const t = this.translations[this.currentLang];
 
         document.getElementById('power-result').innerHTML = `
             <div class="result-item">
-                <div class="label" data-translate-key="total_power">${this.translations[this.currentLang].total_power}</div>
+                <div class="label">${t.total_power}</div>
                 <div class="value">${total_power.toFixed(1)} W</div>
             </div>
+             <div class="result-item">
+                <div class="label">${t.psu_recommendation} (+30%)</div>
+                <div class="value">${requiredPower.toFixed(1)} W</div>
+            </div>
             <div class="result-item">
-                <div class="label" data-translate-key="psu_config">${this.translations[this.currentLang].psu_config}</div>
+                <div class="label">${t.psu_config}</div>
                 <div class="value">${recommendation}</div>
             </div>`;
     }
 
-    calculateMaterials() {
-        const { height } = this.projectData;
-        const avgWidth = height * 0.7;
-        const sheetWidth = 1220;
-        const sheetHeight = 2440;
-        
-        let fits = (avgWidth <= sheetWidth && height <= sheetHeight) || (avgWidth <= sheetHeight && height <= sheetWidth);
-        let resultText = fits ? `1 ${this.translations[this.currentLang].pieces}` : `> 1 ${this.translations[this.currentLang].pieces}`;
-        this.projectData.materials = { fits, resultText };
-
-         document.getElementById('materials-result').innerHTML = `
-            <div class="result-item">
-                <div class="label" data-translate-key="sheets_needed">${this.translations[this.currentLang].sheets_needed}</div>
-                <div class="value">${resultText}</div>
-            </div>`;
-    }
-
     renderSummary() {
-        const { lighting, power, materials, text } = this.projectData;
+        const { lighting, power, text } = this.projectData;
         const summaryEl = document.getElementById('summary-list');
+        const t = this.translations[this.currentLang];
+        
         summaryEl.innerHTML = `
-             <li>
-                <span class="label">Текст вывески</span>
+            <li>
+                <span class="label">${t.sign_text_label}</span>
                 <span class="value">"${text}"</span>
             </li>
             <li>
-                <span class="label" data-translate-key="total_diodes">${this.translations[this.currentLang].total_diodes}</span>
-                <span class="value">${lighting.total_diodes} ${this.translations[this.currentLang].pieces}</span>
+                <span class="label">${t.total_diodes}</span>
+                <span class="value">${lighting.total_diodes} ${t.pieces}</span>
             </li>
             <li>
-                <span class="label" data-translate-key="total_power">${this.translations[this.currentLang].total_power}</span>
+                <span class="label">${t.total_power}</span>
                 <span class="value">${lighting.total_power.toFixed(1)} W</span>
             </li>
             <li>
-                <span class="label" data-translate-key="psu_recommendation">${this.translations[this.currentLang].psu_recommendation}</span>
+                <span class="label">${t.psu_recommendation}</span>
                 <span class="value">${power.recommendation}</span>
-            </li>
-             <li>
-                <span class="label" data-translate-key="sheets_needed">${this.translations[this.currentLang].sheets_needed}</span>
-                <span class="value">${materials.fits ? '1' : '> 1'}</span>
             </li>`;
-    }
-    
-    showAdminPanel() {
-        const password = prompt(this.translations[this.currentLang].password_prompt);
-        if (password === '12345678') {
-            document.getElementById('admin-panel').style.display = 'block';
-        } else if (password) {
-            alert(this.translations[this.currentLang].wrong_password);
-        }
-    }
-    
-    addLightSource() {
-        const name = document.getElementById('admin-item-name').value;
-        const power = parseFloat(document.getElementById('admin-item-power').value);
-        const distance = parseInt(document.getElementById('admin-item-distance').value);
-        if (!name || !power || !distance) { return; }
-        
-        const key = name.replace(/\s+/g, '_').toUpperCase();
-        this.lightSourceData[key] = { name, power, distance }; 
-        
-        localStorage.setItem('admartCustomLightSourceData', JSON.stringify(this.lightSourceData));
-        alert(this.translations[this.currentLang].item_added_success);
-        this.populateLightSourceSelect();
     }
 }
 
